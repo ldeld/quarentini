@@ -8,8 +8,11 @@ Visit at: URL to set
 # Built with
 
 Ruby (2.6.3)
+
 Rails (6.0.2)
+
 Stimulus (1.1.1)
+
 Postgresql
 
 Local setup:

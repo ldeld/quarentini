@@ -1,0 +1,7 @@
+<h1><%= @room.name %></h1>
+<h2>Join this game:</h2>
+
+<%= simple_form_for [@room, @player] do |f| %>
+  <%= f.input :nickname %>
+  <%= f.submit "Join game!" %>
+<% end %>

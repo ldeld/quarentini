@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   before_create :generate_slug
+  has_many :players
 
   # Override to_param to use slug instead of id in path helpers
   def to_param

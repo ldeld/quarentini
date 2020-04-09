@@ -1,1 +1,7 @@
 <h1><%= @room.name %></h1>
+
+
+<h3>Players:</h3>
+<% @players.each do |player| %>
+  <%= player.nickname %>
+<% end %>
