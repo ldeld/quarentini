@@ -1,24 +1,23 @@
-# README
+# Quarentini
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An online drinking game!
+Don't let the quarentine stop you from doing what you do best: getting drunk with your buddies
 
-Things you may want to cover:
+Visit at: URL to set
 
-* Ruby version
+# Built with
 
-* System dependencies
+Ruby (2.6.3)
+Rails (6.0.2)
+Stimulus (1.1.1)
+Postgresql
 
-* Configuration
+Local setup:
+After cloning the repository, do the following:
 
-* Database creation
+    bundle install
+    yarn install
+    rails db:create db:migrate
+    rails s
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+And you should be good to go! Happy drinking
