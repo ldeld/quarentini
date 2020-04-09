@@ -1,3 +1,11 @@
-<h1>Quarentini</h1>
-<h2>The online drinking game</h2>
-<%= link_to new_room_path,  %>
+<h1>Quarentini - The online drinking game</h1>
+<br>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h4>Start a new game!</h4>
+    <%= simple_form_for Room.new do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Start Game", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
