@@ -16,7 +16,10 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     @player.room = @room
     @player.save! # TODO: error handling
-    session[:player_id] =  @player.id
+    session[:player_id] = @player.id
+    # Broadcasting through model doesn't work rn (maybe something to do with using slug instead of ID?)
+    # RoomChannel.broadcast_to(@room, action: "player_joined")
+    ActionCable.server.broadcast("room_#{@room.slug}", @player.nickname)
     redirect_to room_path(@room)
   end
 

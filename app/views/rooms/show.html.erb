@@ -1,7 +1,14 @@
-<h1><%= @room.name %></h1>
+<div id="room-container" data-room-slug="<%= @room.slug %>">
+  <h1><%= @room.name %></h1>
 
-
-<h3>Players:</h3>
-<% @players.each do |player| %>
-  <%= player.nickname %>
-<% end %>
+  <div>
+    <h3>Players:</h3>
+    <ul class="players">
+      <% @players.each do |player| %>
+        <li>
+        <%= player.nickname %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
