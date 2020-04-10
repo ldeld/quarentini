@@ -28,14 +28,15 @@ gem 'jbuilder', '~> 2.7'
 gem 'autoprefixer-rails'
 gem 'awesome_print'
 gem 'font-awesome-sass', '~> 5.6.1'
-gem 'simple_form'
 gem 'rollbar'
+gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+# Nicer rails console
+gem 'pry'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do

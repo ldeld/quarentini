@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_current_player, except: :create
 
   def create
-    @room = Room.create(room_params)
+    @room = Room.create!(room_params)
     redirect_to join_room_path(@room)
   end
 

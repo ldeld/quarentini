@@ -1,14 +1,9 @@
 <div id="room-container" data-room-slug="<%= @room.slug %>">
   <h1><%= @room.name %></h1>
 
-  <div>
-    <h3>Players:</h3>
-    <ul class="players">
-      <% @players.each do |player| %>
-        <li>
-        <%= player.nickname %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <% if @room.started %>
+    <%= render "game" %>
+  <% else %>
+    <%= render "lobby" %>
+  <% end %>
 </div>
