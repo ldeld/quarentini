@@ -12,10 +12,6 @@ card_data = JSON.parse(File.read(Rails.root + "db/cards.json"))
 
 puts "creating cards..."
 
-if Rails.env.development?
-  10.times do |i|
-    Card.create!(name: "test card #{i}", content: "This is test card #{i}. I should only exist in development!")
-  end
-end
+Card.create!(card_data)
 
 puts "done!"
