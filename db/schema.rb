@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_090527) do
+ActiveRecord::Schema.define(version: 2020_04_10_134803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.string "name"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "nickname"
@@ -21,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_090527) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_players_on_room_id"
+  end
+
+  create_table "room_cards", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_room_cards_on_card_id"
+    t.index ["room_id"], name: "index_room_cards_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -35,5 +51,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_090527) do
   end
 
   add_foreign_key "players", "rooms"
+  add_foreign_key "room_cards", "cards"
+  add_foreign_key "room_cards", "rooms"
   add_foreign_key "rooms", "players"
 end
