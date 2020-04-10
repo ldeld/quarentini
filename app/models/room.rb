@@ -2,8 +2,9 @@ class Room < ApplicationRecord
   before_create :generate_slug
   before_destroy :remove_host_id
   has_many :players, dependent: :destroy
+  has_one :room_card
+  has_one :card, through: :room_card
   belongs_to :host, class_name: "Player", foreign_key: "player_id", optional: true
-
 
   # Override to_param to use slug instead of id in path helpers
   def to_param
@@ -20,8 +21,8 @@ class Room < ApplicationRecord
   end
 
   # Remove host id to avoid infinite destroy loop
+  # Host will be destroy anyway as it belongs to room
   def remove_host_id
-    puts "Heyy!"
     self.update(player_id: nil)
   end
 end

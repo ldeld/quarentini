@@ -1,0 +1,5 @@
+<div class="card">
+  <h2><%= card.name %></h2>
+  <p><%= card.content %></p>
+  <%= link_to "Next challenge", next_card_room_path(room), remote: true, class: "btn btn-primary"  %>
+</div>

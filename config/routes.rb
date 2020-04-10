@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       get "join", to: "players#new"
       get "start"
+      get "next_card"
     end
   end
   root to: "pages#home"

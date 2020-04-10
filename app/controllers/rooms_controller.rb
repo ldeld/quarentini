@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :join, :start]
+  before_action :set_room, only: %i(show join start next_card)
   before_action :set_current_player, except: :create
 
   def create
@@ -14,11 +14,24 @@ class RoomsController < ApplicationController
 
   def start
     @room.update(started: true)
-    ActionCable.server.broadcast("room_#{@room.slug}", { action: "gameStart" })
-    render json: { status: 200 }
+    @room.room_card = RoomCard.create(room: @room, card: Card.random)
+    broadcast_data(action: 'gameStart')
+    head :ok
+  end
+
+  def next_card
+    new_card = Card.random
+    @room.room_card.update(card: new_card)
+    card_html = render_to_string(partial: "cards/card", locals: { room: @room, card: new_card })
+    broadcast_data(action: "cardNext", body: card_html)
+    head :ok
   end
 
   private
+
+  def broadcast_data(data)
+    ActionCable.server.broadcast("room_#{@room.slug}", data)
+  end
 
   def set_room
     @room = Room.find_by_slug(params[:slug])

@@ -17,13 +17,17 @@ if (roomContainer) {
       },
 
       received(data) {
+        console.log(data)
         switch (data.action) {
           case 'playerJoin':
             const playerDiv = document.querySelector(".players");
-            const html = `<li>${data}</li>`;
+            const html = `<li>${data.body}</li>`;
             playerDiv.insertAdjacentHTML("beforeend", html);
           case 'gameStart':
             window.location.reload();
+          case 'cardNext':
+            const cardDiv = document.querySelector("#card-container");
+            cardDiv.innerHTML = data.body;
         }
       }
   });
