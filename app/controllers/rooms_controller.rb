@@ -14,7 +14,8 @@ class RoomsController < ApplicationController
 
   def start
     @room.update(started: true)
-    redirect_to room_path(@room)
+    ActionCable.server.broadcast("room_#{@room.slug}", { action: "gameStart" })
+    render json: { status: 200 }
   end
 
   private

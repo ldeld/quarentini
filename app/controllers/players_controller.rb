@@ -20,14 +20,19 @@ class PlayersController < ApplicationController
 
     # First user to join: make them host. There might be a race condition here
     @room.update(host: @player) if @room.players.count == 1
+    broadcast_new_player
 
-    # Broadcasting through model doesn't work rn (maybe something to do with using slug instead of ID?)
-
-    ActionCable.server.broadcast("room_#{@room.slug}", @player.nickname)
     redirect_to room_path(@room)
   end
 
   private
+
+  def broadcast_new_player
+    ActionCable.server.broadcast(
+      "room_#{@room.slug}",
+      { action: 'playerJoin', body: @player.nickname }
+    )
+  end
 
   def player_params
     params.require(:player).permit(:nickname)

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :players, only: :create
     member do
       get "join", to: "players#new"
+      get "start"
     end
   end
   root to: "pages#home"

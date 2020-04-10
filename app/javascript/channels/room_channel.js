@@ -10,17 +10,21 @@ if (roomContainer) {
     {
       connected() {
           // Called when the subscription is ready for use on the server
-        },
+      },
 
-        disconnected() {
-          // Called when the subscription has been terminated by the server
-        },
+      disconnected() {
+        // Called when the subscription has been terminated by the server
+      },
 
-        received(data) {
-          console.log(data);
-          const playerDiv = document.querySelector(".players")
-          const html = `<li>${data}</li>`
-          playerDiv.insertAdjacentHTML("beforeend", html)
+      received(data) {
+        switch (data.action) {
+          case 'playerJoin':
+            const playerDiv = document.querySelector(".players");
+            const html = `<li>${data}</li>`;
+            playerDiv.insertAdjacentHTML("beforeend", html);
+          case 'gameStart':
+            window.location.reload();
         }
+      }
   });
 }

@@ -1,0 +1,10 @@
+<div data-controller="game">
+  <h3>Players</h3>
+  <ul>
+    <% @players.each do |player| %>
+      <li><%= player.nickname %> <%= "(You)" if player == @current_player %> </li>
+    <% end %>
+  </ul>
+
+  <h3></h3>
+</div>

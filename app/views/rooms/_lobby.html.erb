@@ -1,4 +1,4 @@
-<div>
+<div data-controller="lobby">
   <h1>Waiting for players...</h1>
 
   <p>Players that have joined: </p>
@@ -19,7 +19,7 @@
   <br>
 
   <% if @current_player == @room.host %>
-    <button class="btn btn-primary">Start Game</button>
+    <%= link_to "Start Game", start_room_path(@room), remote: true, class: "btn btn-primary" %>
     <p>Once you start the game, no new players will be able to join</p>
   <% else %>
     <p>Wainting for <%= @room.host.nickname %> to start the Game</p>
