@@ -1,6 +1,34 @@
 [
   {
-    "name": "Finish your drink",
-    "content": "All players must try to call this player. "
-  }
+    "name": "Bottoms up",
+    "content": "Finish your drink"
+  },
+  {
+    "name": "Call me maybe",
+    "content": "Every player has to try to call you. The first to succeed chooses who drinks!"
+  },
+  {
+    "name": "Drink up",
+    "content": "The player below you in the player list drinks"
+  },
+  {
+    "name": "Drink up",
+    "content": "The player above you in the player list drinks"
+  },
+  {
+    "name": "Bad luck",
+    "content": "You drink"
+  },
+  {
+    "name": "No country for old men",
+    "content": "Oldest player drinks"
+  },
+  {
+    "name": "Troubled youth",
+    "content": "Youngest player drinks"
+  },
+  {
+    "name": "Bottoms up",
+    "content": "Finish your drink"
+  },
 ]
