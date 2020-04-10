@@ -5,13 +5,23 @@
   <ul class="players">
     <% @players.each do |player| %>
       <li>
-        <%= player.nickname %>
+        <%= player.nickname %> <%= "(host)" if player == @room.host %>
       </li>
     <% end %>
   </ul>
 
+  <div data-controller="clip">
+    <p>You can invite new people (up to 15) using this link: </p>
+    <input type="text" data-target="clip.urlInput"value="<%= join_room_url(@room) %>" readonly>
+    <button data-action="clip#copy">Copy</button>
+  </div>
+
+  <br>
+
   <% if @current_player == @room.host %>
     <button class="btn btn-primary">Start Game</button>
     <p>Once you start the game, no new players will be able to join</p>
+  <% else %>
+    <p>Wainting for <%= @room.host.nickname %> to start the Game</p>
   <% end %>
 </div>

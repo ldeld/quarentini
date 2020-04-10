@@ -3,7 +3,6 @@ import consumer from "./consumer"
 // TODO: place this in a stimulus controller?
 const roomContainer = document.getElementById('room-container');
 if (roomContainer) {
-  console.log(roomContainer.dataset.roomSlug)
   consumer.subscriptions.create({
       channel: "RoomChannel",
       slug: roomContainer.dataset.roomSlug
