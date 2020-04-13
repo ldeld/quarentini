@@ -9,13 +9,9 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-        <%= yield %>
-        </div>
-      </div>
-    </div>
+    <%= yield %>
+    <div class="footer"></div>
+     <%= link_to "Illustrations by Ouch.pics", "https://icons8.com"  %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

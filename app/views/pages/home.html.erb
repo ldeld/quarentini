@@ -1,11 +1,24 @@
-<h1>Quarentini - The online drinking game</h1>
-<br>
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <h4>Start a new game!</h4>
-    <%= simple_form_for Room.new do |f| %>
-      <%= f.input :name %>
-      <%= f.submit "Start Game", class: "btn btn-primary" %>
-    <% end %>
+<div class="home">
+  <div class="container">
+    <h1 class="home-title">QUARANTINI</h1>
+    <div class="row">
+    <br>
+      <div class="col-md-5 offset-md-6">
+        <div class="home-content">
+          <div class="home-tagline">
+            Social distancing doesn’t mean you should drink alone.
+          </div>
+          <div class="home-form">
+            <h4 class="home-form-title">Join your friends online for a good old drinking game.</h4>
+            <%= simple_form_for Room.new do |f| %>
+                <div class="form-input ml-2">
+                <%= f.input :name, label: "Party name:", placeholder: "Laia's birf" %>
+                <%= f.submit "Start playing", class: "main-btn w-100" %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

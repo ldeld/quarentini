@@ -1,0 +1,47 @@
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  background-image: image-url("background-large.png");
+  color: #fafafa;
+}
+
+@media (max-width: 700px) {
+  .home {
+    background-image: none;
+    background: linear-gradient(180deg, rgba(12, 11, 62, 0.51) 0%, rgba(255, 255, 255, 0) 100%), #384586;
+
+  }
+}
+
+.home-title {
+  font-family: "Playfair Display";
+  font-size: 50px;
+  position: absolute;
+  bottom: 30px;
+  left: 60px;
+  letter-spacing: 0.3em;
+  transform:scaleY(1.4);
+}
+
+.home-content {
+  max-width: 440px;
+  text-align: right;
+}
+
+.home-tagline {
+  margin-top: 60px;
+  font-size: 40px;
+}
+
+.home-form {
+  margin-top: 60px;
+  max-width: 300px;
+  text-align: right;
+  float: right;
+}
+
+.home-form-title {
+  font-size: 28px;
+  margin: 30px 0;
+}

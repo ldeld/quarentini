@@ -1,1 +1,12 @@
 @import "bootstrap/scss/bootstrap";
+@import "pages/*";
+@import "config/*";
+@import "components/*";
+body {
+  background-color: $base-grey;
+  font-family: $regular-font
+}
+
+h1, h2, h3, h4 {
+  font-family: $header-font
+}

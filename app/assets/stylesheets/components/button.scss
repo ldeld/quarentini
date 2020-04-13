@@ -1,0 +1,11 @@
+.main-btn {
+  background-color: $base-red;
+  padding: 5px 10px;
+  color: $base-grey;
+  border-radius: 5px;
+  border: none;
+}
+
+.main-btn:hover {
+  background-color: $hover-red;
+}

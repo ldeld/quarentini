@@ -13,8 +13,8 @@ class RoomsController < ApplicationController
   end
 
   def start
-    @room.update(started: true)
     @room.room_card = RoomCard.create(room: @room, card: Card.random)
+    @room.update(started: true)
     broadcast_data(action: 'gameStart')
     head :ok
   end
