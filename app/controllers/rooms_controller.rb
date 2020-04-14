@@ -4,7 +4,10 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.create!(room_params)
-    redirect_to join_room_path(@room)
+    @host = @room.players.first # Jut created user, need id
+    @room.update(host: @host)
+    session[:player_id] = @host.id
+    redirect_to room_path(@room)
   end
 
   def show
@@ -38,6 +41,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:name, players_attributes: [:nickname])
   end
 end

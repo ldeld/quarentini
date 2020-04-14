@@ -8,14 +8,29 @@
           <div class="home-tagline">
             Social distancing doesn’t mean you should drink alone.
           </div>
-          <div class="home-form">
-            <h4 class="home-form-title">Join your friends online for a good old drinking game.</h4>
-            <%= simple_form_for Room.new do |f| %>
-                <div class="form-input ml-2">
-                <%= f.input :name, label: "Party name:", placeholder: "Laia's birf" %>
-                <%= f.submit "Start playing", class: "main-btn w-100" %>
+          <div class="home-form flipcard" data-controller="flipcard">
+            <div class="flipcard-inner">
+              <%= simple_form_for @room do |f| %>
+                <div class="flip-front">
+                  <h4 class="home-form-title">Join your friends online for a good old drinking game.</h4>
+                  <div class="form-input ml-2">
+                  <%= f.input :name, label: "Party name:", placeholder: "Online party" %>
+                  <%= f.submit "Get started", class: "main-btn w-100", data: { action: "flipcard#flip" } %>
+                  </div>
                 </div>
-            <% end %>
+                <div class="flip-back">
+                  <h4 class="home-form-title">
+                    Choose a nickname!
+                  </h4>
+                  <div class="form-input ml-2">
+                    <%= f.simple_fields_for :players do |p| %>
+                      <%= p.input :nickname, label: "Your nickname:" %>
+                    <% end %>
+                    <%= f.submit "Start playing", class: "main-btn w-100" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

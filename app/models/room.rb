@@ -2,6 +2,7 @@ class Room < ApplicationRecord
   before_create :generate_slug
   before_destroy :remove_host_id
   has_many :players, dependent: :destroy
+  accepts_nested_attributes_for :players
   has_one :room_card
   has_one :card, through: :room_card
   belongs_to :host, class_name: "Player", foreign_key: "player_id", optional: true
