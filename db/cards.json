@@ -30,5 +30,117 @@
   {
     "name": "Bottoms up",
     "content": "Finish your drink"
+  },
+  {
+    "name": "Short names",
+    "content": "Players with a one syllable name drink"
+  },
+  {
+    "name": "Average names",
+    "content": "Players with a two syllable name drink"
+  },
+  {
+    "name": "Long names",
+    "content": "Players with names that are 7 letters or longer drink"
+  },
+  {
+    "name": "Short names",
+    "content": "Players with a one syllable name drink"
+  },
+  {
+    "name": "Drink the loneliness away",
+    "content": "Players who are single must drink"
+  },
+  {
+    "name": "Class clown",
+    "content": "Tell a joke. Anyone that laughs drinks. If no one does, you drink"
+  },
+  {
+    "name": "Heads or tails",
+    "content": "Flip a coin. If it's tails you drink, if it's head, you can pick two people to drink"
+  },
+  {
+    "name": "Jury, judge and executioner",
+    "content": "Pick three players who must drink"
+  },
+  {
+    "name": "Bottoms up",
+    "content": "Pick one person who must down their drink"
+  },
+  {
+    "name": "How's the weather up there",
+    "content": "Tallest player drinks"
+  },
+  {
+    "name": "Drunk hobbit",
+    "content": "Shortest player drinks"
+  },
+  {
+    "name": "Everlasting love",
+    "content": "The person(s) that has been in a relationship for the longest time drinks"
+  },
+  {
+    "name": "Multicultural",
+    "content": "Players that speak more than 2 languages drink"
+  },
+  {
+    "name": "Short names",
+    "content": "Players with a one syllable name drink"
+  },
+  {
+    "name": "Moral duty",
+    "content": "Your country needs you to take a drink"
+  },
+  {
+    "name": "Whitest boy alive",
+    "content": "The most pale player drinks"
+  },
+  {
+    "name": "Gender war",
+    "content": "Whichever gender is the majority must drink"
+  },
+  {
+    "name": "Bad luck",
+    "content": "You drink"
+  },
+  {
+    "name": "Sexy times",
+    "content": "Drink if you would have sex with another player (no need to say which)"
+  },
+  {
+    "name": "Phone addict",
+    "content": "The first player to look at their phone drinks"
+  },
+  {
+    "name": "Brunettes",
+    "content": "Players with dark hair drink"
+  },
+  {
+    "name": "Blame your parents",
+    "content": "Every player drinks once for each syllable in their name"
+  },
+  {
+    "name": "Eat your veggies",
+    "content": "Vegetarians/vegans drink"
+  },
+  {
+    "name": "You want beef?",
+    "content": "Meat eaters drink"
+  },
+  {
+    "name": "Spooky time",
+    "content": "Say a phobia that you have. Any player that also has it drinks."
+  },
+  {
+    "name": "Kill those braincells",
+    "content": "Choose who you think the smartest player is, and they must drink"
+  },
+  {
+    "name": "Tough people",
+    "content": "Players with tattoos drink"
+  },
+  {
+    "name": "Double down",
+    "content": "The last person that has drank drinks again"
   }
 ]
