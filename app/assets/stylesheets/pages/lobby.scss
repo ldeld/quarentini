@@ -1,0 +1,43 @@
+.lobby-container {
+  height: 100vh;
+  background-image: image-url("background-left-shifted.png");
+  color: $base-grey;
+}
+
+.lobby-content {
+  margin-top: 10vh;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center
+}
+
+.lobby-players {
+  min-height: 30%;
+}
+
+.invite-link {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+
+  input {
+    flex-grow: 1;
+    margin-right: 5px;
+  }
+}
+
+.lobby-game-controls {
+  margin-top: 30px;
+  text-align: center;
+
+  .main-btn {
+    margin: auto;
+  }
+}
+
+.start-warning {
+  margin-top: 10px;
+  opacity: 0.8;
+}

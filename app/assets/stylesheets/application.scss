@@ -1,7 +1,7 @@
 @import "bootstrap/scss/bootstrap";
-@import "pages/*";
 @import "config/*";
 @import "components/*";
+@import "pages/*";
 body {
   background-color: $base-grey;
   font-family: $regular-font

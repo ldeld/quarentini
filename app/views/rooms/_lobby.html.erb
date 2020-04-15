@@ -1,27 +1,35 @@
-<div data-controller="lobby">
-  <h1>Waiting for players...</h1>
+<div class="lobby-container" data-controller="lobby">
+  <div class="d-flex w-100 justify-content-center align-items center ml-5">
+    <div class="lobby-content">
+      <h1 class="lobby-room"><%= @room.name %></h1>
 
-  <p>Players that have joined: </p>
-  <ul class="players">
-    <% @players.each do |player| %>
-      <li>
-        <%= player.nickname %> <%= "(host)" if player == @room.host %>
-      </li>
-    <% end %>
-  </ul>
+      <div class="lobby-players">
+        <h3>Players that have joined so far: </h3>
+        <% @players.each do |player| %>
+          <p>
+            <%= player.nickname %> <%= "(host)" if player == @room.host %>
+          </p>
+        <% end %>
+      </div>
 
-  <div data-controller="clip">
-    <p>You can invite new people (up to 15) using this link: </p>
-    <input type="text" data-target="clip.urlInput"value="<%= join_room_url(@room) %>" readonly>
-    <button data-action="clip#copy">Copy</button>
+      <div class="lobby-game-actions">
+        <div data-controller="clip">
+          <h5>You can invite people (up to 15) using this link: </h5>
+          <div class="invite-link">
+            <input type="text" data-target="clip.urlInput"value="<%= join_room_url(@room) %>" readonly>
+            <button data-action="clip#copy">Copy</button>
+          </div>
+        </div>
+
+        <div class="lobby-game-controls">
+          <% if @current_player == @room.host %>
+            <%= link_to "Start Game", start_room_path(@room), remote: true, class: "main-btn btn-lg d-block w-75" %>
+            <p class="start-warning"> Once you start the game, no new players will be able to join</p>
+          <% else %>
+            <p>Wainting for <%= @room.host.nickname %> to start the Game</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <br>
-
-  <% if @current_player == @room.host %>
-    <%= link_to "Start Game", start_room_path(@room), remote: true, class: "btn btn-primary" %>
-    <p>Once you start the game, no new players will be able to join</p>
-  <% else %>
-    <p>Wainting for <%= @room.host.nickname %> to start the Game</p>
-  <% end %>
 </div>

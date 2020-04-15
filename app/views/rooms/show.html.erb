@@ -1,6 +1,4 @@
 <div id="room-container" data-room-slug="<%= @room.slug %>">
-  <h1><%= @room.name %></h1>
-
   <% if @room.started %>
     <%= render "game" %>
   <% else %>
