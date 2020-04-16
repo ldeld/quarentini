@@ -3,7 +3,7 @@
     <div class="game-component players-container">
       <h1 class="component-title">Players</h1>
         <% @players.each do |player| %>
-          <div class="player">
+          <div class="player" data-player-id="<%= player.id %>">
             <p>
             <%= player.nickname.capitalize %>
             </p>
@@ -16,7 +16,8 @@
         <%= render partial: "cards/card", locals: { room: @room, card: @room.card } %>
       </div>
     </div>
-    <div class="icon-credit">
+    <div class="credits">
+      <a href="https://github.com/ldeld">Built by Lorenzo Del Castillo</a>
       <a href="https://www.vecteezy.com/free-vector/barman">Barman Icons by Vecteezy</a>
     </div>
     <div class="game-component controls-container">
