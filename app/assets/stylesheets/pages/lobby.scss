@@ -7,10 +7,14 @@
 .lobby-content {
   margin-top: 10vh;
   height: 70vh;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center
+  text-align: center;
+
+  border-radius: 1px;
 }
 
 .lobby-players {
@@ -25,6 +29,7 @@
   input {
     flex-grow: 1;
     margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }
 

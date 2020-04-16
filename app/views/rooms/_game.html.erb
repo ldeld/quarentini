@@ -1,17 +1,28 @@
-<div data-controller="game">
-  <div class="d-flex justify-content-between">
-    <div>
-      <h3>Players</h3>
-      <ul>
+<div class="game-container" data-controller="game">
+  <div class="game-grid">
+    <div class="game-component players-container">
+      <h1 class="component-title">Players</h1>
         <% @players.each do |player| %>
-          <li>
-            <%= player.nickname %> <%= "(You)" if player == @current_player %>
-          </li>
+          <div class="player">
+            <p>
+            <%= player.nickname.capitalize %>
+            </p>
+          </div>
         <% end %>
-      </ul>
     </div>
-    <div id="card-container">
-      <%= render partial: "cards/card", locals: { room: @room, card: @room.card } %>
+    <div class="game-component card-container">
+      <h1 class="component-title"><%= @room.name.capitalize %></h1>
+      <div id="current-card">
+        <%= render partial: "cards/card", locals: { room: @room, card: @room.card } %>
+      </div>
+    </div>
+    <div class="icon-credit">
+      <a href="https://www.vecteezy.com/free-vector/barman">Barman Icons by Vecteezy</a>
+    </div>
+    <div class="game-component controls-container">
+      <h2>Current turn: Camila</h2>
+        <%= link_to "Next turn", next_card_room_path(@room), remote: true, class: "main-btn"  %>
+
     </div>
   </div>
 </div>

@@ -1,0 +1,59 @@
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background-color: $dark-bg-grey;
+
+  h2 {
+    font-size: 29px;
+  }
+}
+
+.game-grid {
+  display: grid;
+  width: 80vw;
+  height: 100%;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 80% 20%;
+
+}
+
+.game-component {
+  background-color: $dark-card-grey;
+  border-radius: 9px;
+  color: $base-grey;
+  padding: 10px;
+  box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.7);
+  margin: 10px;
+  h1, h2, p {
+    opacity: 0.9;
+  }
+}
+
+.component-title {
+  padding: 5px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 33px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25)
+}
+
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.player {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: $player-item;
+  border-radius: 5px;
+  p {
+    margin: 0;
+    font-size: 22px;
+  }
+}

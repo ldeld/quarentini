@@ -142,5 +142,17 @@
   {
     "name": "Double down",
     "content": "The last person that has drank drinks again"
+  },
+  {
+    "name": "In vino verita",
+    "content": "Anyone drinking wine must drink"
+  },
+  {
+    "name": "Beer gut",
+    "content": "Anyone drinking beer must finish their glass"
+  }
+  {
+    "name": "Strong drinks for strong people",
+    "content": "Anyone drinking an alcohol with over 30° drinks"
   }
 ]

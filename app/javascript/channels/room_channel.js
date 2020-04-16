@@ -26,7 +26,7 @@ if (roomContainer) {
           case 'gameStart':
             window.location.reload();
           case 'cardNext':
-            const cardDiv = document.querySelector("#card-container");
+            const cardDiv = document.querySelector("#current-card");
             cardDiv.innerHTML = data.body;
         }
       }
