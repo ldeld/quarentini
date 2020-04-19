@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import consumer from '../channels/consumer';
 
 export default class extends Controller {
-  static targets = ["card"]
+  static targets = ["card", "player", "activePlayer"]
 
   connect() {
     console.log(this.data.get("slug"))
@@ -27,8 +27,10 @@ export default class extends Controller {
 
   _cableReceived(data) {
     // Called when there's incoming data on the websocket for this channel
-    console.log(this)
     this.cardTarget.innerHTML = data.card_body;
-    console.log(data.active_player_id);
+    this.activePlayerTarget.innerHTML = data.active_player.nickname;
+    this.playerTargets.forEach((player) => {
+      player.classList.toggle("active", data.active_player.id == player.dataset.playerId)
+    })
   }
 }

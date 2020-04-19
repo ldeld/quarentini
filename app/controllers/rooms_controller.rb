@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
 
   def show
     redirect_to join_room_path(@room) unless @current_player
-    @players = @room.players
+    @players = @room.players.order(:id)
   end
 
   def start
@@ -27,11 +27,16 @@ class RoomsController < ApplicationController
     new_card = Card.random
     @room.room_card.update(card: new_card)
 
-    next_player = @room.players.where("id > ?", @room.active_player.player_id).first || @room.players.first
+    # TODO: refacto this line (useless SQL query?)
+    next_player = @room.active_player.player.next
     @room.active_player.update(player: next_player)
 
     card_html = render_to_string(partial: "cards/card", locals: { room: @room, card: new_card })
-    broadcast_data(action: "cardNext", active_player_id: next_player.id, card_body: card_html)
+    broadcast_data(
+      action: "cardNext",
+      card_body: card_html,
+      active_player: { id: next_player.id, nickname: next_player.nickname }
+    )
     head :ok
   end
 
