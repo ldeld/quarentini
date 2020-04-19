@@ -1,9 +1,10 @@
-<div class="game-container" data-controller="game">
+<div class="game-container" data-controller="game" data-game-slug=<%= @room.slug %>>
   <div class="game-grid">
     <div class="game-component players-container">
       <h1 class="component-title">Players</h1>
         <% @players.each do |player| %>
-          <div class="player" data-player-id="<%= player.id %>">
+          <div
+            class="player <%= "active" if player.id == @room.active_player.player_id %>" data-player-id="<%= player.id %>">
             <p>
             <%= player.nickname.capitalize %>
             </p>
@@ -12,7 +13,7 @@
     </div>
     <div class="game-component card-container">
       <h1 class="component-title"><%= @room.name.capitalize %></h1>
-      <div id="current-card">
+      <div id="current-card" data-target="game.card">
         <%= render partial: "cards/card", locals: { room: @room, card: @room.card } %>
       </div>
     </div>
@@ -21,7 +22,7 @@
       <a href="https://www.vecteezy.com/free-vector/barman">Barman Icons by Vecteezy</a>
     </div>
     <div class="game-component controls-container">
-      <h2>Current turn: Camila</h2>
+      <h2>Current turn: <%= @room.active_player.player.nickname %></h2>
         <%= link_to "Next turn", next_card_room_path(@room), remote: true, class: "main-btn"  %>
 
     </div>

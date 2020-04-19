@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
 
   def start
     @room.room_card = RoomCard.create(room: @room, card: Card.random)
+    @room.active_player = ActivePlayer.create!(room: @room, player: @room.players.first)
     @room.update(started: true)
     broadcast_data(action: 'gameStart')
     head :ok
@@ -25,8 +26,12 @@ class RoomsController < ApplicationController
   def next_card
     new_card = Card.random
     @room.room_card.update(card: new_card)
+
+    next_player = @room.players.where("id > ?", @room.active_player.player_id).first || @room.players.first
+    @room.active_player.update(player: next_player)
+
     card_html = render_to_string(partial: "cards/card", locals: { room: @room, card: new_card })
-    broadcast_data(action: "cardNext", body: card_html)
+    broadcast_data(action: "cardNext", active_player_id: next_player.id, card_body: card_html)
     head :ok
   end
 

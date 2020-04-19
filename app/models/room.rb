@@ -6,6 +6,7 @@ class Room < ApplicationRecord
   has_one :room_card
   has_one :card, through: :room_card
   belongs_to :host, class_name: "Player", foreign_key: "player_id", optional: true
+  has_one :active_player
 
   # Override to_param to use slug instead of id in path helpers
   def to_param
