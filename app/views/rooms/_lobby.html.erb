@@ -1,9 +1,9 @@
-<div class="lobby-container" data-controller="lobby">
+<div class="lobby-container" data-controller="lobby" data-lobby-slug="<%= @room.slug %>">
   <div class="d-flex w-100 justify-content-center align-items center ml-5">
     <div class="lobby-content">
       <h1 class="lobby-room"><%= @room.name %></h1>
 
-      <div class="lobby-players">
+      <div class="lobby-players" data-target="lobby.players">
         <h3>Players that have joined so far: </h3>
         <% @players.each do |player| %>
           <p>

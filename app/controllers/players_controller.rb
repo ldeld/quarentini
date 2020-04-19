@@ -30,7 +30,7 @@ class PlayersController < ApplicationController
   def broadcast_new_player
     ActionCable.server.broadcast(
       "room_#{@room.slug}",
-      { action: 'playerJoin', body: @player.nickname }
+      { action: 'playerJoin', player_name: @player.nickname }
     )
   end
 
