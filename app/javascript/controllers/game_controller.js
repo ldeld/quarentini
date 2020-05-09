@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import consumer from '../channels/consumer';
 
 export default class extends Controller {
-  static targets = ["card", "player", "activePlayer"]
+  static targets = ["card", "player", "activePlayer", "nextBtn"]
 
   connect() {
     console.log(this.data.get("slug"))
@@ -17,6 +17,21 @@ export default class extends Controller {
     });
   }
 
+  handleNewTurn(data) {
+    this.cardTarget.innerHTML = data.card_body;
+    this.activePlayerTarget.innerHTML = data.active_player.nickname;
+    this.playerTargets.forEach((player) => {
+      player.classList.toggle("active", data.active_player.id === player.dataset.playerId)
+    })
+
+    console.log(this.hostId, this.currentPlayerId)
+    if ([data.active_player.id, this.hostId].includes(this.currentPlayerId)) {
+      this.nextBtnTarget.removeAttribute("disabled")
+    } else {
+      this.nextBtnTarget.setAttribute("disabled", "")
+    }
+  }
+
   _cableConnected() {
     // Called when the subscription is ready for use on the server
   }
@@ -27,10 +42,14 @@ export default class extends Controller {
 
   _cableReceived(data) {
     // Called when there's incoming data on the websocket for this channel
-    this.cardTarget.innerHTML = data.card_body;
-    this.activePlayerTarget.innerHTML = data.active_player.nickname;
-    this.playerTargets.forEach((player) => {
-      player.classList.toggle("active", data.active_player.id == player.dataset.playerId)
-    })
+    this.handleNewTurn(data)
+  }
+
+  get currentPlayerId() {
+    this.data.get("current-player-id")
+  }
+
+  get hostId() {
+    this.data.get("host-id")
   }
 }

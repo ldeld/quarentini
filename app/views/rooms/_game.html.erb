@@ -1,4 +1,4 @@
-<div class="game-container" data-controller="game" data-game-slug="<%= @room.slug %>">
+<div class="game-container" data-controller="game" data-game-slug="<%= @room.slug %>" data-host-id="<%= @room.player_id %>" data-current-user-id="<%= @current_player.id %>">
   <div class="game-grid">
     <div class="game-component players-container">
       <h1 class="component-title">Players</h1>
@@ -24,7 +24,7 @@
     </div>
     <div class="game-component controls-container">
       <h2>Current turn: <span data-target="game.activePlayer"><%= @room.active_player.player.nickname %></span></h2>
-        <%= link_to "Next turn", next_card_room_path(@room), remote: true, class: "main-btn"  %>
+        <%= link_to "Next turn", next_card_room_path(@room), remote: true, class: "main-btn", data: { target: "game.nextBtn" }  %>
 
     </div>
   </div>
