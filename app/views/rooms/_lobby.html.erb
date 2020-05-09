@@ -17,7 +17,7 @@
           <h5>You can invite people (up to 15) using this link: </h5>
           <div class="invite-link">
             <input type="text" data-target="clip.urlInput"value="<%= join_room_url(@room) %>" readonly>
-            <button data-action="clip#copy">Copy</button>
+            <button data-target="clip.copyBtn" data-action="clip#copy">Copy</button>
           </div>
         </div>
 
@@ -26,7 +26,7 @@
             <%= link_to "Start Game", start_room_path(@room), remote: true, class: "main-btn btn-lg d-block w-75" %>
             <p class="start-warning"> Once you start the game, no new players will be able to join</p>
           <% else %>
-            <p>Wainting for <%= @room.host.nickname %> to start the Game</p>
+            <p>Wainting for <%= @room.host.nickname %> to start the game</p>
           <% end %>
         </div>
       </div>

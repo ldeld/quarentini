@@ -1,11 +1,12 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["urlInput"]
+  static targets = ["urlInput", "copyBtn"]
 
   copy() {
     this.urlInputTarget.select();
     document.execCommand("copy");
-    // TODO: show a bpox saying "copied"
+    this.copyBtnTarget.innerText = "Copied!"
+    setTimeout(() => this.copyBtnTarget.innerText = "Copy", 6000)
   }
 }
