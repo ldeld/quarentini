@@ -9,8 +9,7 @@ export default class extends Controller {
     this.channel = consumer.subscriptions.create({
       channel: "RoomChannel",
       slug: this.data.get("slug")
-    },
-    {
+    }, {
       connected: this._cableConnected.bind(this),
       disconnected: this._cableDisconnected.bind(this),
       received: this._cableReceived.bind(this)
